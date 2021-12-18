@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FinalProject_DarkLook.DAL;
+using FinalProject_DarkLook.Models;
+using FinalProject_DarkLook.ViewModels.Home;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -10,11 +14,24 @@ namespace FinalProject_DarkLook.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AppDbContext _context;
 
-
-        public IActionResult Index()
+        public HomeController(AppDbContext context)
         {
-            return View();
+            _context = context;
+        }
+
+
+        public async Task <IActionResult> Index()
+        {
+
+            return View(new HomeVM
+            {
+                Sliders = await _context.Sliders.Where(s => s.IsDeleted == false).ToListAsync(),
+                Futures = await _context.Futures.Where(s => s.IsDeleted == false).ToListAsync()
+
+
+            });
         }
 
 

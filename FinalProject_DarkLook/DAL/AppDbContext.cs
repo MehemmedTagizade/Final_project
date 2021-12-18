@@ -14,6 +14,9 @@ namespace FinalProject_DarkLook.DAL
         {
 
         }
+        public DbSet<Slider > Sliders { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Future> Futures { get; set; }
 
 
     }

@@ -1,47 +1,33 @@
-﻿     <!-- =====  BANNER STRAT  ===== -->
+﻿@model HomeVM
+
+@{
+    ViewData["Title"] = "Index";
+
+}
 <div class="banner">
     <div class="main-banner owl-carousel">
-        <div class="item"><a href="~/#"><img src="~/images/main_banner1.jpg" alt="Main Banner" class="img-responsive" /></a></div>
-        <div class="item"><a href="~/#"><img src="~/images/main_banner2.jpg" alt="Main Banner" class="img-responsive" /></a></div>
+        @foreach ( Slider Slider in Model.Sliders)
+            {
+            <div class="item"><a href="~/#"><img src="~/images/@Slider.Image" alt="Main Banner" class="img-responsive" /></a></div>
+            }
     </div>
 </div>
-<!-- =====  BANNER END  ===== -->
-<!-- =====  CONTAINER START  ===== -->
 <div class="container">
-    <!-- =====  SUB BANNER  STRAT ===== -->
     <div class="row">
-        <div class="col-sm-3 mt_20 cms-icon ">
-            <div class="feature-i-left ptb_30 ">
-                <div class="icon-right Shipping"></div>
-                <h6>Free Shipping</h6>
-                <p>Free dedlivery worldwide</p>
+        @foreach (Future future in Model.Futures)
+        {
+            <div class="col-sm-3 mt_20 cms-icon ">
+                <div class="feature-i-left ptb_30 ">
+                    <div class="icon-right @future.Icon"></div>
+                    <h6>@future.Title</h6>
+                    <p>@future.Desc</p>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-3 mt_20 cms-icon ">
-            <div class="feature-i-left ptb_30 ">
-                <div class="icon-right Order"></div>
-                <h6>Order Onlivne</h6>
-                <p>Hours : 8am - 11pm</p>
-            </div>
-        </div>
-        <div class="col-sm-3 mt_20 cms-icon ">
-            <div class="feature-i-left ptb_30 ">
-                <div class="icon-right Save"></div>
-                <h6>Shop And Save</h6>
-                <p>For All Spices & Herbs</p>
-            </div>
-        </div>
-        <div class="col-sm-3 mt_20 cms-icon ">
-            <div class="feature-i-left ptb_30 ">
-                <div class="icon-right Safe"></div>
-                <h6>Safe Shoping</h6>
-                <p>Ensure genuine 100%</p>
-            </div>
-        </div>
+
+        }
     </div>
     <div class="row ">
         <div class="col-sm-12 mt_30">
-            <!-- =====  PRODUCT TAB  ===== -->
             <div id="product-tab" class="mt_10">
                 <div class="heading-part mb_10 ">
                     <h2 class="main_title">Featured Products</h2>
