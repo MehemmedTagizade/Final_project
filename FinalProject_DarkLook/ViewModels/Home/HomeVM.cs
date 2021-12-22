@@ -10,6 +10,13 @@ namespace FinalProject_DarkLook.ViewModels.Home
     {
         public ICollection<Slider>  Sliders { get; set; }
         public ICollection<Future> Futures { get; set; }
+        public ICollection<WatchCard> WatchCards { get; set; }
+        public ICollection<News> News { get; set; }
+        public ICollection<BrandLogo> BrandLogos { get; set; }
+
+
+
+
 
     }
 }

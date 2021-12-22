@@ -28,7 +28,11 @@ namespace FinalProject_DarkLook.Controllers
             return View(new HomeVM
             {
                 Sliders = await _context.Sliders.Where(s => s.IsDeleted == false).ToListAsync(),
-                Futures = await _context.Futures.Where(s => s.IsDeleted == false).ToListAsync()
+                Futures = await _context.Futures.Where(s => s.IsDeleted == false).ToListAsync(),
+                WatchCards=await _context.WatchCards.Where(x=>x.IsDeleted==false).ToListAsync(),
+                News = await _context.News.Where(x => x.IsDeleted == false).ToListAsync(),
+                BrandLogos = await _context.BrandLogos.Where(x => x.IsDeleted == false).ToListAsync(),
+
 
 
             });

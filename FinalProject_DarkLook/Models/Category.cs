@@ -11,5 +11,7 @@ namespace FinalProject_DarkLook.Models
         public int Id { get; set; }
         [Required,StringLength(150)]
         public string Name { get; set; }
+        public bool IsDeleted { get; set; }
+        public List<BlogCategory> BlogCategories { get; set; }
     }
 }
