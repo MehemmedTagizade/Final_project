@@ -229,3 +229,8 @@ C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\Blog\BlogDetails.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\FinalProject_DarkLook.csproj.AssemblyReference.cache
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs

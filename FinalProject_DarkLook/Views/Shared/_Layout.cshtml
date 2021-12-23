@@ -70,7 +70,24 @@
                         </div>
                         <div class="col-xs-12 col-sm-8">
                             <ul class="header-top-right text-right">
-                                <li class="account"><a href="~/login.html">My Account</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li>
+                                        <a class="page-scroll" asp-controller="account" asp-action="Logout">İstifadəçi:<br />@User.Identity.Name <br />Cıxış</a>
+                                    </li>
+
+                                }
+                                else
+                                {
+
+
+                                    <li>
+                                    <li class="account"><a asp-controller="Account" asp-action="login">My Account</a></li>
+
+                                    </li>
+
+                                }
+
                                 <li class="language dropdown">
                                     <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Language <span class="caret"></span> </span>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">

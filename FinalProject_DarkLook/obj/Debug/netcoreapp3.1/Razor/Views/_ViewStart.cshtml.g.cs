@@ -34,14 +34,21 @@ using FinalProject_DarkLook.ViewModels.Aboutt;
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\_ViewImports.cshtml"
+#line 4 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\_ViewImports.cshtml"
+using FinalProject_DarkLook.ViewModels.AcoountViewModel;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\_ViewImports.cshtml"
 using FinalProject_DarkLook.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a99ee4cfcacb01a565aede3902c10c915ef36edc", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f4341a569c510be9329216741c7fab4c9b9414e", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

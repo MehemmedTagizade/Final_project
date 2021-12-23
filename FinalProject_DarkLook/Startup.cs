@@ -1,7 +1,9 @@
 using FinalProject_DarkLook.DAL;
+using FinalProject_DarkLook.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +32,28 @@ namespace FinalProject_DarkLook
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+            });
+            services.AddIdentity<AppUser, IdentityRole>(identityOptions =>
+            {
+                identityOptions.Password.RequireDigit = true;
+                identityOptions.Password.RequiredLength = 8;
+                identityOptions.Password.RequireLowercase = true;
+                identityOptions.Password.RequireNonAlphanumeric = true;
+                identityOptions.Password.RequireUppercase = true;
+                identityOptions.Password.RequiredUniqueChars = 1;
+
+                identityOptions.User.RequireUniqueEmail = true;
+
+                identityOptions.Lockout.MaxFailedAccessAttempts = 3;
+                identityOptions.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                identityOptions.Lockout.AllowedForNewUsers = true;
+            }).AddDefaultTokenProviders()
+            .AddEntityFrameworkStores<AppDbContext>();
+            services.AddHttpContextAccessor();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +73,7 @@ namespace FinalProject_DarkLook
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
