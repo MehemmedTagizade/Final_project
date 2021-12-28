@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿
+@inject FinalProject_DarkLook.Services.LayoutService layoutService;
+
+@{
+    Setting setting = layoutService.GetSetting();
+            }
+
+<!DOCTYPE html>
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en">
 <!--<![endif]-->
@@ -65,7 +72,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-4">
                             <div class="header-top-left">
-                                <div class="contact"><span class="hidden-xs hidden-sm hidden-md">Days a week from 9:00 am to 7:00 pm</span></div>
+                                <div class="contact"><span class="hidden-xs hidden-sm hidden-md">@setting.WorkTimeDesc</span></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-8">
@@ -73,7 +80,7 @@
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     <li>
-                                        <a class="page-scroll" asp-controller="account" asp-action="Logout">İstifadəçi:<br />@User.Identity.Name <br />Cıxış</a>
+                                        <a class="page-scroll" asp-controller="account" asp-action="Logout">İstifadəçi:@User.Identity.Name <br />Cıxış</a>
                                     </li>
 
                                 }
@@ -96,14 +103,6 @@
                                         <li><a href="~/#">German</a></li>
                                     </ul>
                                 </li>
-                                <li class="currency dropdown">
-                                    <span class="dropdown-toggle" id="dropdownMenu12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Currency <span class="caret"></span> </span>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu12">
-                                        <li><a href="~/#">€ Euro</a></li>
-                                        <li><a href="~/#">£ Pound Sterling</a></li>
-                                        <li><a href="~/#">$ US Dollar</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -120,7 +119,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href="~/index-2.html"> <img alt="themini" src="~/images/logo.png"> </a> </div>
+                        <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href="~/index-2.html"> <img alt="themini" src="~/images/@setting.Logo"> </a> </div>
                         <div class="col-xs-6 col-sm-4 shopcart">
                             <div id="cart" class="btn-group btn-block mtb_40">
                                 <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true"><span id="shippingcart">Shopping cart</span><span id="cart-total">items (0)</span> </button>
@@ -188,77 +187,11 @@
                         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse"> <span class="i-bar"><i class="fa fa-bars"></i></span></button>
                         <div class="collapse navbar-collapse js-navbar-collapse">
                             <ul id="menu" class="nav navbar-nav">
-                                <li> <a href="~/index-2.html">Home</a></li>
-                                <li class="dropdown mega-dropdown">
-                                    <a href="~/#" class="dropdown-toggle" data-toggle="dropdown">Collection </a>
-                                    <ul class="dropdown-menu mega-dropdown-menu row">
-                                        <li class="col-md-3">
-                                            <ul>
-                                                <li class="dropdown-header">Women's</li>
-                                                <li><a href="~/#">Unique Features</a></li>
-                                                <li><a href="~/#">Image Responsive</a></li>
-                                                <li><a href="~/#">Auto Carousel</a></li>
-                                                <li><a href="~/#">Newsletter Form</a></li>
-                                                <li><a href="~/#">Four columns</a></li>
-                                                <li><a href="~/#">Four columns</a></li>
-                                                <li><a href="~/#">Good Typography</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="col-md-3">
-                                            <ul>
-                                                <li class="dropdown-header">Man's</li>
-                                                <li><a href="~/#">Unique Features</a></li>
-                                                <li><a href="~/#">Image Responsive</a></li>
-                                                <li><a href="~/#">Four columns</a></li>
-                                                <li><a href="~/#">Auto Carousel</a></li>
-                                                <li><a href="~/#">Newsletter Form</a></li>
-                                                <li><a href="~/#">Four columns</a></li>
-                                                <li><a href="~/#">Good Typography</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="col-md-3">
-                                            <ul>
-                                                <li class="dropdown-header">Children's</li>
-                                                <li><a href="~/#">Unique Features</a></li>
-                                                <li><a href="~/#">Four columns</a></li>
-                                                <li><a href="~/#">Image Responsive</a></li>
-                                                <li><a href="~/#">Auto Carousel</a></li>
-                                                <li><a href="~/#">Newsletter Form</a></li>
-                                                <li><a href="~/#">Four columns</a></li>
-                                                <li><a href="~/#">Good Typography</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="col-md-3">
-                                            <ul>
-                                                <li id="myCarousel" class="carousel slide" data-ride="carousel">
-                                                    <div class="carousel-inner">
-                                                        <div class="item active"> <a href="~/#"><img src="~/images/menu-banner1.jpg" class="img-responsive" alt="Banner1"></a></div>
-                                                        <!-- End Item -->
-                                                        <div class="item"> <a href="~/#"><img src="~/images/menu-banner2.jpg" class="img-responsive" alt="Banner1"></a></div>
-                                                        <!-- End Item -->
-                                                        <div class="item"> <a href="~/#"><img src="~/images/menu-banner3.jpg" class="img-responsive" alt="Banner1"></a></div>
-                                                        <!-- End Item -->
-                                                    </div>
-                                                    <!-- End Carousel Inner -->
-                                                </li>
-                                                <!-- /.carousel -->
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <li> <a  asp-controller="home" asp-action="index">Home</a></li>
                                 <li> <a href="~/category_page.html">Shop</a></li>
                                 <li> <a asp-controller="blog" asp-action="index">Blog</a></li>
-                                <li class="dropdown">
-                                    <a href="~/#" class="dropdown-toggle" data-toggle="dropdown">Pages </a>
-                                    <ul class="dropdown-menu">
-                                        <li> <a href="~/cart_page.html">Cart</a></li>
-                                        <li> <a href="~/checkout_page.html">Checkout</a></li>
-                                        <li> <a href="~/product_detail_page.html">Product Detail Page</a></li>
-                                        <li> <a href="~/single_blog.html">Single Post</a></li>
-                                    </ul>
-                                </li>
-                                <li> <a asp-controller="About" asp-action="index" >About us</a></li>
-                                <li> <a href="~/contact_us.html">Contact us</a></li>
+                                <li> <a asp-controller="About" asp-action="index">About us</a></li>
+                                <li> <a asp-controller="Contact" asp-action="index">Contact us</a></li>
                             </ul>
                         </div>
                         <!-- /.nav-collapse -->
@@ -267,7 +200,7 @@
             </div>
         </header>
         <!-- =====  HEADER END  ===== -->
-   @RenderBody()
+        @RenderBody()
         <!-- =====  FOOTER START  ===== -->
         <div class="footer pt_60">
             <div class="container">
@@ -325,11 +258,11 @@
                     <div class="col-md-3 footer-block">
                         <h6 class="footer-title ptb_20">Contacts</h6>
                         <ul>
-                            <li>Warehouse & Offices,</li>
-                            <li>12345 Street name, California USA</li>
-                            <li>(+024) 666 888</li>
-                            <li>yourid@domain.com</li>
-                            <li><a href="~/#">www.yoursite.com</a></li>
+                            <li>@setting.Adress</li>
+                            <li>@setting.Street</li>
+                            <li>@setting.Number</li>
+                            <li>@setting.Email</li>
+                            <li><a href="@setting.WebUrl">www.yoursite.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -340,11 +273,11 @@
                         <div class="col-sm-4">
                             <div class="social_icon">
                                 <ul>
-                                    <li><a href="~/#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="~/#"><i class="fa fa-google"></i></a></li>
-                                    <li><a href="~/#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li><a href="~/#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="~/#"><i class="fa fa-rss"></i></a></li>
+                                    <li><a href="@setting.FacebookUrl"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="@setting.GoogleUrl"><i class="fa fa-google"></i></a></li>
+                                    <li><a href="@setting.LinkUrl"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="~@setting.Twitter"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="@setting.LastUrl"><i class="fa fa-rss"></i></a></li>
                                 </ul>
                             </div>
                         </div>

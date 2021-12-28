@@ -1,5 +1,6 @@
 using FinalProject_DarkLook.DAL;
 using FinalProject_DarkLook.Models;
+using FinalProject_DarkLook.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,7 @@ namespace FinalProject_DarkLook
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
+            services.AddScoped<LayoutService>();
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(10);
@@ -79,6 +81,12 @@ namespace FinalProject_DarkLook
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                        name: "areas",
+                        pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}"
+                    );
+
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

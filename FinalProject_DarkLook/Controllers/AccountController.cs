@@ -106,34 +106,12 @@ namespace FinalProject_DarkLook.Controllers
             return RedirectToAction("Login", "account");
 
         }
-        public async Task<IActionResult> ConfirmEmail(string Id, string token)
-        {
-            if (string.IsNullOrWhiteSpace(Id) || string.IsNullOrWhiteSpace(token))
-            {
-                return NotFound();
-            }
-
-            AppUser appUser = await _manager.FindByIdAsync(Id);
-
-            if (appUser == null)
-            {
-                return NotFound();
-            }
-
-            IdentityResult identityResult = await _manager.ConfirmEmailAsync(appUser, token);
-            if (!identityResult.Succeeded)
-            {
-                return NotFound();
-            }
-
-            return RedirectToAction("Login");
-        }
 
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
 
-            return RedirectToAction("login", "account");
+            return RedirectToAction("index", "home");
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -176,6 +154,30 @@ namespace FinalProject_DarkLook.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+       
+        public async Task<IActionResult> ConfirmEmail(string Id, string token)
+        {
+            if (string.IsNullOrWhiteSpace(Id) || string.IsNullOrWhiteSpace(token))
+            {
+                return NotFound();
+            }
+
+            AppUser appUser = await _manager.FindByIdAsync(Id);
+
+            if (appUser == null)
+            {
+                return NotFound();
+            }
+
+            IdentityResult identityResult = await _manager.ConfirmEmailAsync(appUser, token);
+            if (!identityResult.Succeeded)
+            {
+                return NotFound();
+            }
+
+            return RedirectToAction("Login");
+        }
+        
         public IActionResult ForgetPassword()
         {
             return View();
@@ -221,5 +223,66 @@ namespace FinalProject_DarkLook.Controllers
 
             return View();
         }
+
+        
+
+        public async Task<IActionResult> ChangePassword(string Id, string token)
+        {
+            if (string.IsNullOrWhiteSpace(Id) || string.IsNullOrWhiteSpace(token))
+            {
+                return NotFound();
+            }
+
+            AppUser appUser = await _manager.FindByIdAsync(Id);
+
+            if (appUser == null)
+            {
+                return NotFound();
+            }
+
+            ResetPasswordVM resetPasswordVM = new ResetPasswordVM
+            {
+                Id = Id,
+                Token = token
+            };
+
+            return View(resetPasswordVM);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(ResetPasswordVM resetPasswordVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            if (string.IsNullOrWhiteSpace(resetPasswordVM.Id) || string.IsNullOrWhiteSpace(resetPasswordVM.Token))
+            {
+                return NotFound();
+            }
+
+            AppUser appUser = await _manager.FindByIdAsync(resetPasswordVM.Id);
+
+            if (appUser == null)
+            {
+                return NotFound();
+            }
+
+            IdentityResult identityResult = await _manager.ResetPasswordAsync(appUser, resetPasswordVM.Token, resetPasswordVM.Password);
+
+            if (!identityResult.Succeeded)
+            {
+                foreach (IdentityError error in identityResult.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View(resetPasswordVM);
+            }
+
+            return RedirectToAction("Login");
+        }
+
     } 
 }

@@ -25,6 +25,10 @@ namespace FinalProject_DarkLook.DAL
         public DbSet<About> Abouts { get; set; }
         public DbSet<Skills> Skills { get; set; }
         public DbSet<OurTeam> OurTeams { get; set; }
+        public DbSet<Setting> Setting { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+
+
 
 
 

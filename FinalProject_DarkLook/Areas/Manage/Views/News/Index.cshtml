@@ -1,0 +1,46 @@
+﻿@model ICollection<News>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<h1 class="h3 mb-4 text-gray-800">News Page</h1>
+
+@if (Model.Count <15)
+{
+    <div class="d-flex justify-content-end mb-2">
+        <a class="btn btn-primary" asp-action="Create">Create</a>
+    </div>
+}
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Day</th>
+            <th scope="col">Settings</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (News news in Model)
+        {
+            <tr>
+                <th scope="row">@news.Id</th>
+                <td>
+                    <img style="width:200px; height:200px; border-radius:50%" src="~/images/blog/@news.Image" alt="Alternate Text" />
+                </td>
+                <td>@Html.Raw(news.Title)</td>
+                <td>@news.Day</td>
+                <td>
+                    <a class="btn btn--primary" asp-action="Detail" asp-route-Id="@news.Id">Detail</a>
+                    <a class="btn btn-warning" asp-action="Update" asp-route-Id="@news.Id">Update</a>
+                    <a class=" btn btn-danger" asp-action="Delete" asp-route-Id="@news.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

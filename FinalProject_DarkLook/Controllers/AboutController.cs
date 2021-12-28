@@ -19,14 +19,14 @@ namespace FinalProject_DarkLook.Controllers
         }
         public async Task<IActionResult> Index()
         {
-
+             
             return View(new AboutVM
             {
 
                 OurTeams = await _context.OurTeams.Where(x=>x.IsDeleted==false).ToListAsync(),
                 Skills=await _context.Skills.Where(x=>x.IsDeleted==false).ToListAsync(),
                 Categories = await _context.Categories.Where(x => x.IsDeleted == false).ToListAsync(),
-                Abouts=await _context.Abouts.Where(x=>x.IsDeleted==false).ToListAsync()
+                About= await _context.Abouts.FirstOrDefaultAsync()
 
 
             });;

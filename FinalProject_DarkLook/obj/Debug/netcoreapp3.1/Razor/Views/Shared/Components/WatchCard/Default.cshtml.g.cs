@@ -41,14 +41,21 @@ using FinalProject_DarkLook.ViewModels.AcoountViewModel;
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\_ViewImports.cshtml"
+#line 5 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\_ViewImports.cshtml"
+using FinalProject_DarkLook.ViewModels.Contacs;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\_ViewImports.cshtml"
 using FinalProject_DarkLook.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d934aec548bce9ed3e0fa2009dbfd02d64776ced", @"/Views/Shared/Components/WatchCard/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f4341a569c510be9329216741c7fab4c9b9414e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"65aff6f41da56c9e2224594bf6b244cf9dbab887", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_WatchCard_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<WatchCard>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("data-name", new global::Microsoft.AspNetCore.Html.HtmlString("product_image"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -83,9 +90,9 @@ using FinalProject_DarkLook.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("    <div class=\"product-grid\">\r\n        <div class=\"item\">\r\n            <div class=\"product-thumb\">\r\n               \r\n                    <div class=\"image product-imageblock\">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced6691", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced6918", async() => {
                 WriteLiteral(" ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d934aec548bce9ed3e0fa2009dbfd02d64776ced6943", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d934aec548bce9ed3e0fa2009dbfd02d64776ced7170", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -112,7 +119,7 @@ AddHtmlAttributeValue("", 311, Model.Image, 311, 12, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral(" ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d934aec548bce9ed3e0fa2009dbfd02d64776ced8877", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d934aec548bce9ed3e0fa2009dbfd02d64776ced9104", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -151,7 +158,7 @@ AddHtmlAttributeValue("", 416, Model.HoverImage, 416, 17, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                        <div class=\"button-group text-center\">\r\n                            <div class=\"wishlist\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced11667", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced11894", async() => {
                 WriteLiteral("<span>wishlist</span>");
             }
             );
@@ -166,7 +173,7 @@ AddHtmlAttributeValue("", 416, Model.HoverImage, 416, 17, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</div>\r\n                            <div class=\"quickview\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced12817", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced13044", async() => {
                 WriteLiteral("<span>Quick View</span>");
             }
             );
@@ -181,7 +188,7 @@ AddHtmlAttributeValue("", 416, Model.HoverImage, 416, 17, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</div>\r\n                            <div class=\"compare\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced13967", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced14194", async() => {
                 WriteLiteral("<span>Compare</span>");
             }
             );
@@ -196,7 +203,7 @@ AddHtmlAttributeValue("", 416, Model.HoverImage, 416, 17, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</div>\r\n                            <div class=\"add-to-cart\">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced15118", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced15345", async() => {
                 WriteLiteral("<span>Add to cart</span>");
             }
             );
@@ -216,7 +223,7 @@ AddHtmlAttributeValue("", 416, Model.HoverImage, 416, 17, false);
                     <div class=""caption product-detail text-center"">
                         <div class=""rating""> <span class=""fa fa-stack""><i class=""fa fa-star-o fa-stack-1x""></i><i class=""fa fa-star fa-stack-1x""></i></span> <span class=""fa fa-stack""><i class=""fa fa-star-o fa-stack-1x""></i><i class=""fa fa-star fa-stack-1x""></i></span> <span class=""fa fa-stack""><i class=""fa fa-star-o fa-stack-1x""></i><i class=""fa fa-star fa-stack-1x""></i></span> <span class=""fa fa-stack""><i class=""fa fa-star-o fa-stack-1x""></i><i class=""fa fa-star fa-stack-1x""></i></span> <span class=""fa fa-stack""><i class=""fa fa-star-o fa-stack-1x""></i><i class=""fa fa-star fa-stack-x""></i></span> </div>
                         <h6 data-name=""product_name"" class=""product-name"">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced17071", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d934aec548bce9ed3e0fa2009dbfd02d64776ced17298", async() => {
 #nullable restore
 #line 17 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\Shared\Components\WatchCard\Default.cshtml"
                                                                                                                         Write(Model.Desc);
