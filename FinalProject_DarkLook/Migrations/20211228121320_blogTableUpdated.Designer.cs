@@ -4,14 +4,16 @@ using FinalProject_DarkLook.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinalProject_DarkLook.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211228121320_blogTableUpdated")]
+    partial class blogTableUpdated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -155,12 +157,17 @@ namespace FinalProject_DarkLook.Migrations
                         .HasMaxLength(550);
 
                     b.Property<DateTime?>("Date")
-                        .HasColumnType("datetime2");
+                        .IsRequired()
+                        .HasColumnType("datetime2")
+                        .HasMaxLength(20);
 
                     b.Property<string>("Desc")
                         .IsRequired()
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .IsRequired()
@@ -174,10 +181,6 @@ namespace FinalProject_DarkLook.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
-
-                    b.Property<string>("OriginalImageName")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
 
                     b.Property<string>("RedSide")
                         .HasColumnType("nvarchar(550)")

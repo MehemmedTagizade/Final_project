@@ -25,7 +25,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             _context = context;
             _env = env;
         }
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             return View(await _context.News.OrderByDescending(x=>x.Id).Where(x=>x.IsDeleted==false).ToListAsync());
         }
