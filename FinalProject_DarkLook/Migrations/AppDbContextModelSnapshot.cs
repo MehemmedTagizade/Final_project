@@ -231,6 +231,10 @@ namespace FinalProject_DarkLook.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("OriginalImageName")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
+
                     b.HasKey("Id");
 
                     b.ToTable("BrandLogos");
@@ -412,6 +416,10 @@ namespace FinalProject_DarkLook.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
+
+                    b.Property<string>("OriginalImageName")
+                        .HasColumnType("nvarchar(255)")
+                        .HasMaxLength(255);
 
                     b.Property<string>("PinterestUrl")
                         .HasColumnType("nvarchar(150)")
