@@ -271,3 +271,13 @@ C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Update.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Delete.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\FinalProject_DarkLook.csproj.AssemblyReference.cache
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Setting\Index.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Setting\Create.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Setting\Detail.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Setting\Delete.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Setting\Update.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\WatchCard\Detail.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\WatchCard\Index.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\WatchCard\Create.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\WatchCard\Delete.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\WatchCard\Update.cshtml.g.cs

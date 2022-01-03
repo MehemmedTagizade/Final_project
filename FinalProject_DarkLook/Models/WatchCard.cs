@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,6 +26,11 @@ namespace FinalProject_DarkLook.Models
         public bool IsBestSeller{ get; set; }
         public bool IsFeatured { get; set; }
         public bool IsDealsOftheWeek{ get; set; }
+        [NotMapped]
+        public IFormFile HoverImageFile { get; set; }
+        [NotMapped]
+        public IFormFile MainImageFile { get; set; }
+
 
 
     }
