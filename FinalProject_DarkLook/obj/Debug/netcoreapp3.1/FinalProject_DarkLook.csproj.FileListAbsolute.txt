@@ -281,3 +281,15 @@ C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\WatchCard\Create.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\WatchCard\Delete.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\WatchCard\Update.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Index.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Create.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Update.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Delete.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Future\Index.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Future\Create.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Future\Update.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Future\Delete.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\About\Index.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\About\Create.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\About\Update.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\About\Delete.cshtml.g.cs

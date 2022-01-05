@@ -134,7 +134,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
 
                 Helper.DeleteFile(filepath, dbNewsr.Image);
 
-                dbNewsr.OriginalImageName = dbNewsr.File.FileName;
+                dbNewsr.OriginalImageName = news.File.FileName;
 
                 dbNewsr.Image = await news.File.SaveFileAsync(filepath);
             }
