@@ -48,14 +48,21 @@ using FinalProject_DarkLook.ViewModels.Contacs;
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\_ViewImports.cshtml"
+#line 6 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\_ViewImports.cshtml"
+using FinalProject_DarkLook.ViewModels.Product;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\_ViewImports.cshtml"
 using FinalProject_DarkLook.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"59abc3fb8e5a890c95facd5c103538d8498ddcb1", @"/Views/About/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"65aff6f41da56c9e2224594bf6b244cf9dbab887", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6f7836b6fccae1d5db19498750ff713f75019fcb", @"/Views/_ViewImports.cshtml")]
     public class Views_About_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<AboutVM>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/#"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -118,7 +125,7 @@ using FinalProject_DarkLook.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                            <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59abc3fb8e5a890c95facd5c103538d8498ddcb18453", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59abc3fb8e5a890c95facd5c103538d8498ddcb18679", async() => {
 #nullable restore
 #line 16 "C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\Views\About\Index.cshtml"
                                          Write(category.Name);
@@ -148,8 +155,8 @@ using FinalProject_DarkLook.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                    </ul>\r\n                </div>\r\n            </div>\r\n            <div class=\"left_banner left-sidebar-widget mt_30 mb_40\"> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59abc3fb8e5a890c95facd5c103538d8498ddcb110119", async() => {
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "59abc3fb8e5a890c95facd5c103538d8498ddcb110336", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59abc3fb8e5a890c95facd5c103538d8498ddcb110345", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "59abc3fb8e5a890c95facd5c103538d8498ddcb110562", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -186,7 +193,7 @@ AddHtmlAttributeValue("", 925, Model.About.ImageLeftSide, 925, 26, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(" </div>\r\n        </div>\r\n        <div class=\"col-sm-8 col-lg-9 mtb_20\">\r\n            <!-- about  -->\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <figure> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "59abc3fb8e5a890c95facd5c103538d8498ddcb113077", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "59abc3fb8e5a890c95facd5c103538d8498ddcb113303", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -240,7 +247,7 @@ AddHtmlAttributeValue("", 1222, Model.About.Image, 1222, 18, false);
                         <div class=""panel panel-default pull-left"">
                             <div class=""panel-heading"">
                                 <h4 class=""panel-title""> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59abc3fb8e5a890c95facd5c103538d8498ddcb116263", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59abc3fb8e5a890c95facd5c103538d8498ddcb116489", async() => {
                 WriteLiteral("1. What is HTML?");
             }
             );
@@ -271,7 +278,7 @@ AddHtmlAttributeValue("", 1222, Model.About.Image, 1222, 18, false);
                         <div class=""panel panel-default pull-left"">
                             <div class=""panel-heading"">
                                 <h4 class=""panel-title""> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59abc3fb8e5a890c95facd5c103538d8498ddcb118325", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59abc3fb8e5a890c95facd5c103538d8498ddcb118551", async() => {
                 WriteLiteral("2. What is Bootstrap?");
             }
             );
@@ -302,7 +309,7 @@ AddHtmlAttributeValue("", 1222, Model.About.Image, 1222, 18, false);
                         <div class=""panel panel-default pull-left"">
                             <div class=""panel-heading"">
                                 <h4 class=""panel-title""> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59abc3fb8e5a890c95facd5c103538d8498ddcb120394", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "59abc3fb8e5a890c95facd5c103538d8498ddcb120620", async() => {
                 WriteLiteral("3. What is CSS?");
             }
             );

@@ -30,6 +30,9 @@ namespace FinalProject_DarkLook.Controllers
                 Sliders = await _context.Sliders.Where(s => s.IsDeleted == false).ToListAsync(),
                 Futures = await _context.Futures.Where(s => s.IsDeleted == false).ToListAsync(),
                 WatchCards=await _context.WatchCards.Where(x=>x.IsDeleted==false).ToListAsync(),
+                Feature = await _context.WatchCards.Where(p => p.IsFeatured).OrderByDescending(p => p.Id).Take(8).ToListAsync(),
+                Arrival = await _context.WatchCards.Where(p => p.IsNewArrivals).OrderByDescending(p => p.Id).Take(8).ToListAsync(),
+                BestSeller = await _context.WatchCards.Where(p => p.IsBestSeller).OrderByDescending(p => p.Id).Take(8).ToListAsync(),
                 News = await _context.News.Where(x => x.IsDeleted == false).ToListAsync(),
                 BrandLogos = await _context.BrandLogos.Where(x => x.IsDeleted == false).ToListAsync(),
 

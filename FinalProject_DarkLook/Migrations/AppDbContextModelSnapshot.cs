@@ -239,7 +239,12 @@ namespace FinalProject_DarkLook.Migrations
                         .HasColumnType("nvarchar(255)")
                         .HasMaxLength(255);
 
+                    b.Property<int?>("WatchCardId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("WatchCardId");
 
                     b.ToTable("BrandLogos");
                 });
@@ -262,6 +267,26 @@ namespace FinalProject_DarkLook.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.Colour", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Colours");
                 });
 
             modelBuilder.Entity("FinalProject_DarkLook.Models.Contact", b =>
@@ -514,6 +539,24 @@ namespace FinalProject_DarkLook.Migrations
                     b.ToTable("Setting");
                 });
 
+            modelBuilder.Entity("FinalProject_DarkLook.Models.Size", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Sizes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sizes");
+                });
+
             modelBuilder.Entity("FinalProject_DarkLook.Models.Skills", b =>
                 {
                     b.Property<int>("Id")
@@ -567,10 +610,23 @@ namespace FinalProject_DarkLook.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(150)")
+                        .HasMaxLength(150);
+
                     b.Property<string>("Desc")
                         .IsRequired()
                         .HasColumnType("nvarchar(150)")
                         .HasMaxLength(150);
+
+                    b.Property<string>("DescDetail")
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
 
                     b.Property<string>("HoverImage")
                         .HasColumnType("nvarchar(200)")
@@ -599,9 +655,56 @@ namespace FinalProject_DarkLook.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<bool>("Stock")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("WatchCards");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.WatchColour", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ColourId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WatchCardId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ColourId");
+
+                    b.HasIndex("WatchCardId");
+
+                    b.ToTable("WatchColours");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.WatchSize", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("SizeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WatchCardId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SizeId");
+
+                    b.HasIndex("WatchCardId");
+
+                    b.ToTable("watchSizes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -746,6 +849,35 @@ namespace FinalProject_DarkLook.Migrations
                     b.HasOne("FinalProject_DarkLook.Models.Category", "Category")
                         .WithMany("BlogCategories")
                         .HasForeignKey("CategoryId");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.BrandLogo", b =>
+                {
+                    b.HasOne("FinalProject_DarkLook.Models.WatchCard", null)
+                        .WithMany("BrandLogos")
+                        .HasForeignKey("WatchCardId");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.WatchColour", b =>
+                {
+                    b.HasOne("FinalProject_DarkLook.Models.Colour", "Colour")
+                        .WithMany("WatchColours")
+                        .HasForeignKey("ColourId");
+
+                    b.HasOne("FinalProject_DarkLook.Models.WatchCard", "WatchCard")
+                        .WithMany("watchColours")
+                        .HasForeignKey("WatchCardId");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.WatchSize", b =>
+                {
+                    b.HasOne("FinalProject_DarkLook.Models.Size", "Size")
+                        .WithMany("WatchSizes")
+                        .HasForeignKey("SizeId");
+
+                    b.HasOne("FinalProject_DarkLook.Models.WatchCard", "WatchCard")
+                        .WithMany("watchSizes")
+                        .HasForeignKey("WatchCardId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

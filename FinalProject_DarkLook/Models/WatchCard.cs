@@ -19,6 +19,17 @@ namespace FinalProject_DarkLook.Models
         [Required, StringLength(150)]
 
         public string Desc { get; set; }
+        [ StringLength(1000)]
+
+        public string DescDetail { get; set; }
+        [Required, StringLength(150)]
+
+        public string Brand { get; set; }
+        [ StringLength(150)]
+
+        public string Code { get; set; }
+
+        public  bool Stock { get; set; }
         [Required]
         public double Price { get; set; }
         public bool IsDeleted { get; set; }
@@ -30,6 +41,10 @@ namespace FinalProject_DarkLook.Models
         public IFormFile HoverImageFile { get; set; }
         [NotMapped]
         public IFormFile MainImageFile { get; set; }
+
+        public List<WatchColour> watchColours { get; set; }
+        public List<WatchSize> watchSizes { get; set; }
+        public List<BrandLogo> BrandLogos { get; set; }
 
 
 

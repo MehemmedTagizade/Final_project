@@ -270,7 +270,6 @@ C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Create.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Update.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Brand\Delete.cshtml.g.cs
-C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\FinalProject_DarkLook.csproj.AssemblyReference.cache
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Setting\Index.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Setting\Create.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Setting\Detail.cshtml.g.cs
@@ -293,3 +292,10 @@ C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\About\Create.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\About\Update.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\About\Delete.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_product.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Index.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\Shop\WatchDetail.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\FinalProject_DarkLook.csproj.AssemblyReference.cache
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\User\Index.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\User\ChangeRole.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\User\ChangePassword.cshtml.g.cs

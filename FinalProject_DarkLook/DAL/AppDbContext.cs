@@ -14,6 +14,7 @@ namespace FinalProject_DarkLook.DAL
         {
 
         }
+
         public DbSet<Slider > Sliders { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Future> Futures { get; set; }
@@ -27,6 +28,14 @@ namespace FinalProject_DarkLook.DAL
         public DbSet<OurTeam> OurTeams { get; set; }
         public DbSet<Setting> Setting { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Colour> Colours { get; set; }
+        public DbSet<WatchColour> WatchColours { get; set; }
+        public DbSet<Size> Sizes { get; set; }
+        public DbSet<WatchSize> watchSizes { get; set; }
+
+
+
+
 
 
 

@@ -13,6 +13,10 @@ namespace FinalProject_DarkLook.ViewModels.Home
         public ICollection<WatchCard> WatchCards { get; set; }
         public ICollection<News> News { get; set; }
         public ICollection<BrandLogo> BrandLogos { get; set; }
+        public ICollection<WatchCard> Feature { get; set; }
+        public ICollection<WatchCard> Arrival { get; set; }
+        public ICollection<WatchCard> BestSeller { get; set; }
+
 
 
 
