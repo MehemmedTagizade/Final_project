@@ -354,15 +354,15 @@
                         <div class="product-thumb  mb_30">
                             <div class="image product-imageblock">
                                 <a asp-controller="shop" asp-action="WatchDetail" asp-route-id="@watchCard.Id"> <img data-name="product_image" src="images/product/@watchCard.Image"  title="iPod Classic" class="img-responsive" /> <img src="images/product/product3-1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a>
-                                <div class="button-group text-center">
-                                    <div class="compare"><a href="#"><span>Compare</span></a></div>
-                                    <div class="add-to-cart"><a href="#"><span>Add to cart</span></a></div>
-                                </div>
+                    
                             </div>
                             <div class="caption product-detail text-center">
-                                <h6 data-name="product_name" class="product-name mt_20"><a href="#" title="Casual Shirt With Ruffle Hem">@watchCard.Desc</a></h6>
+                                <h6 data-name="product_name" class="product-name mt_20"><a  asp-controller="Product" asp-action="GetDetail" asp-route-Id="@watchCard.Id" id="product-Detail" data-toggle="modal" data-target="#quickModal" title="Casual Shirt With Ruffle Hem">@watchCard.Desc</a></h6>
                                 <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
                                 <span class="price">
+                                    <a asp-controller="Product" asp-action="AddBasket" asp-route-Id="@watchCard.Id" class="btn btn-outlined--primary">
+                                        <span class="plus-icon"></span>Add to Cart
+                                    </a>
                                     <span class="amount"><span class="currencySymbol">$</span>@watchCard.Price</span>
                                 </span>
                                 <p class="product-desc mt_20 mb_60"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.Cover Flow. Browse through your music collection by flipping..</p>

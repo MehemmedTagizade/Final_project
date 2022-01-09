@@ -372,18 +372,23 @@
                             <label>Product Code:</label>
                             @*<span> @Model.Code</span>*@
                         </li>
+                        <a asp-controller="Product" asp-action="AddBasket" asp-route-Id="@Model.Watchard.Id" class="btn btn-outlined--primary">
+                            <span class="plus-icon"></span>Add to Cart
+                        </a>
+
+
                         <li>
                             <label>Availability:</label>
                             @*@if (Model.Stock == false)
-                            {
-                                <span> Out of Stock</span>
+            {
+                <span> Out of Stock</span>
 
-                            }
-                            else
-                            {
-                                <span> In Stock</span>
+            }
+            else
+            {
+                <span> In Stock</span>
 
-                            }*@
+            }*@
                         </li>
                     </ul>
                     <hr>
@@ -394,21 +399,21 @@
                                 <div class="Sort-by col-md-6">
                                     <label>Sort by</label>
                                     <select name="product_size" id="select-by-size" class="selectpicker form-control">
-                                        @*@foreach (WatchSize size in )
+                                        @foreach (var size in Model.Watchard.watchSizes)
                                         {
-                                            <option>@size.Size</option>
+                                            <option>@size.Size.Sizes </option>
 
-                                        }*@
+                                        }
                                     </select>
                                 </div>
                                 <div class="Color col-md-6">
                                     <label>Color</label>
                                     <select name="product_color" id="select-by-color" class="selectpicker form-control">
-                                       @*@foreach(WatchColour colour in Model.watchColours)
+                                       @foreach(var colour in Model.Watchard.watchColours)
             {
                                         <option>@colour.Colour.Name</option>
 
-            }*@
+            }
                                     </select>
                                 </div>
                             </div>
@@ -418,7 +423,7 @@
                             <input name="product_quantity" min="1" value="1" type="number">
                         </div>
                         <div class="button-group mt_30">
-                            <div class="add-to-cart"><a href="~/#"><span>Add to cart</span></a></div>
+                            <div class="add-to-cart"><a asp-controller="Product" asp-action="AddBasket" asp-route-Id="@Model.Watchard.Id"><span>Add to cart</span></a></div>
                             <div class="wishlist"><a href="~/#"><span>wishlist</span></a></div>
                             <div class="compare"><a href="~/#"><span>Compare</span></a></div>
                         </div>
@@ -640,6 +645,8 @@
                                             <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span>
                                         </div>
                                         <span class="price">
+
+                                           
                                             <span class="amount"><span class="currencySymbol">$</span>70.00</span>
                                         </span>
                                     </div>

@@ -32,6 +32,8 @@ namespace FinalProject_DarkLook.DAL
         public DbSet<WatchColour> WatchColours { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<WatchSize> watchSizes { get; set; }
+        public DbSet<BasketWatch> BasketWatches { get; set; }
+
 
 
 

@@ -28,12 +28,17 @@ namespace FinalProject_DarkLook
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                    );
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             services.AddScoped<LayoutService>();
+            services.AddHttpContextAccessor();
+
+
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(10);
@@ -54,7 +59,6 @@ namespace FinalProject_DarkLook
                 identityOptions.Lockout.AllowedForNewUsers = true;
             }).AddDefaultTokenProviders()
             .AddEntityFrameworkStores<AppDbContext>();
-            services.AddHttpContextAccessor();
 
         }
 
@@ -76,7 +80,7 @@ namespace FinalProject_DarkLook
 
             app.UseRouting();
             app.UseAuthentication();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

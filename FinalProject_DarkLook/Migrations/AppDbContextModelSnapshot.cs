@@ -147,6 +147,37 @@ namespace FinalProject_DarkLook.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("FinalProject_DarkLook.Models.BasketWatch", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("WatchId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("WatchId");
+
+                    b.ToTable("BasketWatches");
+                });
+
             modelBuilder.Entity("FinalProject_DarkLook.Models.Blog", b =>
                 {
                     b.Property<int>("Id")
@@ -619,6 +650,9 @@ namespace FinalProject_DarkLook.Migrations
                         .HasColumnType("nvarchar(150)")
                         .HasMaxLength(150);
 
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
                     b.Property<string>("Desc")
                         .IsRequired()
                         .HasColumnType("nvarchar(150)")
@@ -836,6 +870,19 @@ namespace FinalProject_DarkLook.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.BasketWatch", b =>
+                {
+                    b.HasOne("FinalProject_DarkLook.Models.AppUser", "AppUser")
+                        .WithMany("BasketWatches")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("FinalProject_DarkLook.Models.WatchCard", "Watch")
+                        .WithMany("BasketWatches")
+                        .HasForeignKey("WatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FinalProject_DarkLook.Models.BlogCategory", b =>

@@ -33,6 +33,7 @@ namespace FinalProject_DarkLook.Models
         [Required]
         public double Price { get; set; }
         public bool IsDeleted { get; set; }
+        public int Count { get; set; }
         public bool IsNewArrivals { get; set; }
         public bool IsBestSeller{ get; set; }
         public bool IsFeatured { get; set; }
@@ -41,6 +42,7 @@ namespace FinalProject_DarkLook.Models
         public IFormFile HoverImageFile { get; set; }
         [NotMapped]
         public IFormFile MainImageFile { get; set; }
+        public ICollection<BasketWatch> BasketWatches { get; set; }
 
         public List<WatchColour> watchColours { get; set; }
         public List<WatchSize> watchSizes { get; set; }

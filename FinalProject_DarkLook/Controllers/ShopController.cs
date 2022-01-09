@@ -35,22 +35,14 @@ namespace FinalProject_DarkLook.Controllers
 
         public async Task<IActionResult> WatchDetail (int? Id)
         {
-            WatchCard watchCard = await _context.WatchCards.Where(x => x.IsDeleted == false).Include(x => x.watchColours).ThenInclude(x=>x.Colour).Include(x => x.watchSizes).ThenInclude(x=>x.Size).FirstOrDefaultAsync(x => x.Id == Id);
+            WatchCard watchCard = await _context.WatchCards.Where(x => x.IsDeleted == false).
+                Include(x => x.watchColours).ThenInclude(x=>x.Colour).Include(x => x.watchSizes).
+                ThenInclude(x=>x.Size).FirstOrDefaultAsync(x => x.Id == Id);
 
-            List<string> Sizes = new List<string>();
-            List<string> Colours = new List<string>();
-
-            foreach(var WatchSize in watchCard.watchSizes)
-            {
-                Sizes.Add(WatchSize.Size.Sizes);
-            }
 
             ProductVM productVM = new ProductVM
             {
                 Watchard = watchCard,
-                Sizess=Sizes
-
-
             };
             return View(productVM);
 

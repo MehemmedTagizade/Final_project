@@ -18,5 +18,7 @@ namespace FinalProject_DarkLook.Models
         public string SurName { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public ICollection<BasketWatch> BasketWatches { get; set; }
     }
 }
