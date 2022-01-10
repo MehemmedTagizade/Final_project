@@ -35,6 +35,7 @@ namespace FinalProject_DarkLook.Controllers
                 BestSeller = await _context.WatchCards.Where(p => p.IsBestSeller).OrderByDescending(p => p.Id).Take(8).ToListAsync(),
                 News = await _context.News.Where(x => x.IsDeleted == false).ToListAsync(),
                 BrandLogos = await _context.BrandLogos.Where(x => x.IsDeleted == false).ToListAsync(),
+                DealWeek=await _context.WatchCards.Where(p=>p.IsDealsOftheWeek).OrderByDescending(x=>x.Id).Take(8).ToListAsync()
 
 
 

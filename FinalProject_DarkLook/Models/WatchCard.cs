@@ -30,6 +30,8 @@ namespace FinalProject_DarkLook.Models
         public string Code { get; set; }
 
         public  bool Stock { get; set; }
+        public int Star { get; set; }
+
         [Required]
         public double Price { get; set; }
         public bool IsDeleted { get; set; }
@@ -47,6 +49,7 @@ namespace FinalProject_DarkLook.Models
         public List<WatchColour> watchColours { get; set; }
         public List<WatchSize> watchSizes { get; set; }
         public List<BrandLogo> BrandLogos { get; set; }
+
 
 
 

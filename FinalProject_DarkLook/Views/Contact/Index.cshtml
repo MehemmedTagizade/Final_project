@@ -3,7 +3,6 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
 
 <div class="container mt_30">
     <div class="row ">
@@ -47,26 +46,18 @@
                     </div>
                 </div>
                 <div class="col-md-8 col-xs-12 contact-form mb_50">
-                    <!-- Contact FORM -->
+                    <!-- start Contact FORM -->
                     <div id="contact_form">
-                        <form id="contact_body" method="post" action="http://html.lionode.com/darklook/contact_me.php">
-                            <!--                                <label class="full-with-form" ><span>Name</span></label>
-                            -->
-                            <input class="full-with-form " type="text" name="name" placeholder="Name" data-required="true" />
-                            <!--                <label class="full-with-form" ><span>Email Address</span></label>
-                            -->
-                            <input class="full-with-form  mt_30" type="email" name="email" placeholder="Email Address" data-required="true" />
-                            <!--                <label class="full-with-form" ><span>Phone Number</span></label>
-                            -->
-                            <input class="full-with-form  mt_30" type="text" name="phone1" placeholder="Phone Number" maxlength="15" data-required="true" />
-                            <!--                <label class="full-with-form" ><span>Subject</span></label>
-                            -->
-                            <input class="full-with-form  mt_30" type="text" name="subject" placeholder="Subject" data-required="true">
-                            <!--                                <label class="full-with-form" ><span>Attachment</span></label>
-                            -->
-                            <!--                                <label class="full-with-form" ><span>Message</span></label>
-                            -->
-                            <textarea class="full-with-form  mt_30" name="message" placeholder="Message" data-required="true"></textarea>
+                        <form id="contact_body" method="post" action="">
+
+                            <input class="full-with-form " asp-for="@Model.Username" type="text" placeholder="Username" data-required="true" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+
+
+                            <input class="full-with-form  mt_30" type="email" asp-for="@Model.Email" placeholder="Email Address" data-required="true" />
+
+                            <textarea class="full-with-form  mt_30" asp-for="@Model.Text" placeholder="Message" data-required="true"></textarea>
+
                             <button class="btn mt_30" type="submit">Send Message</button>
                         </form>
                         <div id="contact_results"></div>
@@ -74,12 +65,7 @@
                     <!-- END Contact FORM -->
                 </div>
             </div>
-            <!-- map  -->
-            <div class="row">
-                <div class="col-xs-12 map mb_80">
-                    <div id="map"></div>
-                </div>
-            </div>
+           
         </div>
     </div>
 </div>

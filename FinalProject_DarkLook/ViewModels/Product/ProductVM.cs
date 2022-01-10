@@ -18,6 +18,8 @@ namespace FinalProject_DarkLook.ViewModels.Product
         public List<WatchSize> watchSizes { get; set; }
 
         public List<string> Sizess { get; set; }
+        public List<Category> Categories { get; set;}
+        public List<WatchCard> Featured { get; set; }
 
 
 

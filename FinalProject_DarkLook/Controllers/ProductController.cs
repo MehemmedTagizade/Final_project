@@ -85,42 +85,6 @@ namespace FinalProject_DarkLook.Controllers
 
             
 
-            //string strBasket = HttpContext.Request.Cookies["basket"];
-
-            //List<BasketVM> Watches = null;
-
-            //if (strBasket == null)
-            //{
-            //    Watches = new List<BasketVM>();
-
-            //}
-            //else
-            //{
-            //    Watches = JsonConvert.DeserializeObject<List<BasketVM>>(strBasket);
-
-            //}
-
-            //BasketVM basketVM = new BasketVM
-            //{
-            //    Id = (int)Id,
-            //    Title = watchCard.Desc,
-            //    MainImage = watchCard.Image,
-            //    Price = watchCard.Price,
-            //    Count = 1
-            //};
-            //if (Watches.Any(x => x.Id == Id))
-            //{
-            //    Watches.FirstOrDefault(x => x.Id == Id).Count += 1;
-            //}
-            //else
-            //{
-            //    Watches.Add(basketVM);
-            //}
-
-            //string strWatches = JsonConvert.SerializeObject(Watches);
-
-            //HttpContext.Response.Cookies.Append("basket", strWatches, new CookieOptions { MaxAge = TimeSpan.FromMinutes(10) });
-
             return RedirectToAction("Index", "shop");
         }
 

@@ -10,5 +10,9 @@ namespace FinalProject_DarkLook.ViewModels.Contacs
     {
         public Contact contact { get; set; }
         public ICollection<Category>  Categories {get;set;}
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string Text { get; set; }
+
     }
 }

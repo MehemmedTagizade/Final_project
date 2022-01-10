@@ -503,6 +503,32 @@ namespace FinalProject_DarkLook.Migrations
                     b.ToTable("OurTeams");
                 });
 
+            modelBuilder.Entity("FinalProject_DarkLook.Models.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Reviews");
+                });
+
             modelBuilder.Entity("FinalProject_DarkLook.Models.Setting", b =>
                 {
                     b.Property<int>("Id")
@@ -688,6 +714,9 @@ namespace FinalProject_DarkLook.Migrations
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
+
+                    b.Property<int>("Star")
+                        .HasColumnType("int");
 
                     b.Property<bool>("Stock")
                         .HasColumnType("bit");
@@ -903,6 +932,13 @@ namespace FinalProject_DarkLook.Migrations
                     b.HasOne("FinalProject_DarkLook.Models.WatchCard", null)
                         .WithMany("BrandLogos")
                         .HasForeignKey("WatchCardId");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.Review", b =>
+                {
+                    b.HasOne("FinalProject_DarkLook.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
                 });
 
             modelBuilder.Entity("FinalProject_DarkLook.Models.WatchColour", b =>

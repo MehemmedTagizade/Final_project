@@ -1,5 +1,4 @@
-﻿
-@model ProductVM
+﻿@model ProductVM
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -25,19 +24,10 @@
                         <h2 class="main_title">Top category</h2>
                     </div>
                     <ul class="nav  main-navigation collapse in">
-                        <li><a href="~/#">Appliances</a></li>
-                        <li><a href="~/#">Mobile Phones</a></li>
-                        <li><a href="~/#">Tablet PC & Accessories</a></li>
-                        <li><a href="~/#">Consumer Electronics</a></li>
-                        <li><a href="~/#">Computers & Networking</a></li>
-                        <li><a href="~/#">Electrical & Tools</a></li>
-                        <li><a href="~/#">Apparel</a></li>
-                        <li><a href="~/#">Bags & Shoes</a></li>
-                        <li><a href="~/#">Toys & Hobbies</a></li>
-                        <li><a href="~/#">Watches & Jewelry</a></li>
-                        <li><a href="~/#">Home & Garden</a></li>
-                        <li><a href="~/#">Health & Beauty</a></li>
-                        <li><a href="~/#">Outdoors & Sports</a></li>
+                        @foreach (Category category in Model.Categories)
+                        {
+                            <li><a href="~/#">@category.Name</a></li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -46,50 +36,38 @@
                     <h2 class="main_title">Refinr Search</h2>
                 </div>
                 <div class="filter-block">
-                    <p>
-                        <label for="amount">Price range:</label>
-                        <input type="text" id="amount" readonly>
-                    </p>
-                    <div id="slider-range" class="mtb_20"></div>
+                  
+                 
                     <div class="list-group">
                         <div class="list-group-item mb_10">
                             <label>Color</label>
                             <div id="filter-group1">
+                                @foreach(var color in Model.Colours)
+            {
                                 <div class="checkbox">
                                     <label>
-                                        <input value="" type="checkbox"> Red (10)
+                                        <input value="" type="checkbox"> @color.Name  (@color.Name.Count())
                                     </label>
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input value="" type="checkbox"> Green (06)
-                                    </label>
-                                </div>
-                                <div class="checkbox ">
-                                    <label>
-                                        <input value="" type="checkbox"> Blue(09)
-                                    </label>
-                                </div>
+
+            }
+                             
                             </div>
                         </div>
                         <div class="list-group-item mb_10">
                             <label>Size</label>
                             <div id="filter-group3">
-                                <div class="checkbox">
-                                    <label>
-                                        <input value="" type="checkbox"> Big (3)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input value="" type="checkbox"> Medium (2)
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input value="" type="checkbox"> Small (1)
-                                    </label>
-                                </div>
+                                @foreach (var size in Model.Sizes)
+        {
+        <div class="checkbox">
+                <label>
+                    <input value="" type="checkbox"> @size.Sizes (@size.Sizes.Count())
+                </label>
+        </div>
+
+        }
+                             
+
                             </div>
                         </div>
                         <button type="button" class="btn">Refine Search</button>
@@ -102,206 +80,40 @@
                     <h2 class="main_title">Top Products</h2>
                 </div>
                 <div id="left-special" class="owl-carousel">
+
+                        @foreach (WatchCard watch in Model.WatchCards)
+                        {
                     <ul class="row ">
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product1.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product1-1.jpg"> </a> </div>
+                            <li class="item product-layout-left mb_20">
+                                <div class="product-list col-xs-4">
+                                    <div class="product-thumb">
+                                        <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/@watch.Image"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product1-1.jpg"> </a> </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
+                                <div class="col-xs-8">
+                                    <div class="caption product-detail">
+                                        <h6 class="product-name"><a href="~/#">@watch.Desc</a></h6>
+                                        <div class="rating-block">
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                if (i <= watch.Star)
+                                                {
+                                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
+                                                    continue;
+                                                }
+                                                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span>
+                                            }
+                                        </div>
+                                        <span class="price">
+                                            <span class="amount"><span class="currencySymbol">$</span>@watch.Price</span>
+                                        </span>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product3.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product3-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product4.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product4-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+
                     </ul>
-                    <ul class="row ">
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product5.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product5-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product6.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product6-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product7.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product7-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="row ">
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product8.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product8-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product9.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product9-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product10.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product10-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="row ">
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product1.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product1-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product2.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product2-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item product-layout-left mb_20">
-                            <div class="product-list col-xs-4">
-                                <div class="product-thumb">
-                                    <div class="image product-imageblock"> <a href="~/product_detail_page.html"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product3.jpg"> <img class="img-responsive" title="iPod Classic" alt="iPod Classic" src="~/images/product/product3-1.jpg"> </a> </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-8">
-                                <div class="caption product-detail">
-                                    <h6 class="product-name"><a href="~/#">New LCDScreen and HD Video Recording</a></h6>
-                                    <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                    <span class="price">
-                                        <span class="amount"><span class="currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                        }
+
                 </div>
             </div>
         </div>
@@ -346,40 +158,52 @@
             </div>
             <div class="row">
 
-                @foreach(WatchCard watchCard in Model.WatchCards)
-            {
+                @foreach (WatchCard watchCard in Model.WatchCards)
+                {
 
-                <div class="product-layout product-grid col-md-4 col-xs-6 ">
-                    <div class="item">
-                        <div class="product-thumb  mb_30">
-                            <div class="image product-imageblock">
-                                <a asp-controller="shop" asp-action="WatchDetail" asp-route-id="@watchCard.Id"> <img data-name="product_image" src="images/product/@watchCard.Image"  title="iPod Classic" class="img-responsive" /> <img src="images/product/product3-1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a>
-                    
-                            </div>
-                            <div class="caption product-detail text-center">
-                                <h6 data-name="product_name" class="product-name mt_20"><a  asp-controller="Product" asp-action="GetDetail" asp-route-Id="@watchCard.Id" id="product-Detail" data-toggle="modal" data-target="#quickModal" title="Casual Shirt With Ruffle Hem">@watchCard.Desc</a></h6>
-                                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span> </div>
-                                <span class="price">
-                                    <a asp-controller="Product" asp-action="AddBasket" asp-route-Id="@watchCard.Id" class="btn btn-outlined--primary">
-                                        <span class="plus-icon"></span>Add to Cart
-                                    </a>
-                                    <span class="amount"><span class="currencySymbol">$</span>@watchCard.Price</span>
-                                </span>
-                                <p class="product-desc mt_20 mb_60"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.Cover Flow. Browse through your music collection by flipping..</p>
+                    <div class="product-layout product-grid col-md-4 col-xs-6 ">
+                        <div class="item">
+                            <div class="product-thumb  mb_30">
+                                <div class="image product-imageblock">
+                                    <a asp-controller="shop" asp-action="WatchDetail" asp-route-id="@watchCard.Id"> <img data-name="product_image" src="images/product/@watchCard.Image" title="iPod Classic" class="img-responsive" /> <img src="images/product/product3-1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a>
+
+                                </div>
+                                <div class="caption product-detail text-center">
+                                    <h6 data-name="product_name" class="product-name mt_20"><a asp-controller="Product" asp-action="GetDetail" asp-route-Id="@watchCard.Id" id="product-Detail" data-toggle="modal" data-target="#quickModal" title="Casual Shirt With Ruffle Hem">@watchCard.Desc</a></h6>
+                                    <div class="rating-block">
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            if (i <= watchCard.Star)
+                                            {
+                                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
+                                                continue;
+                                            }
+                                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span>
+                                        }
+                                    </div>
+                                    <span class="price">
+                                        <a asp-controller="Product" asp-action="AddBasket" asp-route-Id="@watchCard.Id" class="btn btn-outlined--primary">
+                                            <span class="plus-icon"></span>Add to Cart
+                                        </a>
+                                        <span class="amount"><span class="currencySymbol">$</span>@watchCard.Price</span>
+                                    </span>
+                                    <p class="product-desc mt_20 mb_60"> More room to move. With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.Cover Flow. Browse through your music collection by flipping..</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            }
+                }
 
             </div>
             <div class="pagination-nav text-center mt_50">
                 <ul>
-                    <li><a href="~/#"><i class="fa fa-angle-left"></i></a></li>
-                    <li class="active"><a href="~/#">1</a></li>
-                    <li><a href="~/#">2</a></li>
-                    <li><a href="~/#">3</a></li>
-                    <li><a href="~/#"><i class="fa fa-angle-right"></i></a></li>
+                    <li><a asp-action="index" asp-route-page="@(ViewBag.Seltectedpage-1)"><i class="fa fa-angle-left"></i></a></li>
+                    @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                    {
+                        <li class="page-item @(i==ViewBag.Seltectedpage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+
+                    }
+                    <li><a asp-action="index" asp-route-page="@(ViewBag.Seltectedpage+1)"><i class="fa fa-angle-right"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -394,15 +218,14 @@
                     <div class="brand owl-carousel ptb_20">
 
 
-                        @foreach(BrandLogo brandLogo in Model.BrandLogos)
-            {
+                        @foreach (BrandLogo brandLogo in Model.BrandLogos)
+                        {
 
-                        <div class="item text-center"> <a href="#"><img src="~/images/brand/@brandLogo.Image" alt="Dell" class="img-responsive" /></a> </div>
-            }
+                            <div class="item text-center"> <a href="#"><img src="~/images/brand/@brandLogo.Image" alt="Dell" class="img-responsive" /></a> </div>
+                        }
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

@@ -145,7 +145,7 @@
                                                         <a>@basketWatch1.Watch.Desc</a>
                                                         <span class="text-left price"> <span>@basketWatch1.Count x</span> $@(basketWatch1.Count * basketWatch1.Watch.Price)</span>
                                                     </td>
-                                                    <td class="text-center"><a class="close-cart"><i class="fa fa-times-circle"></i></a></td>
+                                                    <td class="text-center"><a class="close-cart" asp-controller="product" asp-action="DeleteBasket" asp-route-Id="@basketWatch1.Id"><i class="fa fa-times-circle"></i></a></td>
                                                 </tr>
                                     }
                                                
