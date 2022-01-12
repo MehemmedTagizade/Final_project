@@ -25,9 +25,11 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             _context = context;
             _env = env;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page=1)
         {
-            return View(await _context.News.OrderByDescending(x=>x.Id).Where(x=>x.IsDeleted==false).ToListAsync());
+            ViewBag.TotalPage = Math.Ceiling(_context.News.Count() / 8m);
+            ViewBag.Seltectedpage = page;
+            return View(await _context.News.OrderByDescending(x=>x.Id).Where(x=>x.IsDeleted==false).Skip((page-1)*6).Take(6).ToListAsync());
         }
 
 

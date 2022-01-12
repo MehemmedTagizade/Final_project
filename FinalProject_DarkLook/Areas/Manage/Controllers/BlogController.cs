@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 namespace FinalProject_DarkLook.Areas.Manage.Controllers
 { 
     [Area("manage")]
+
     public class blogController : Controller
     {
         private readonly AppDbContext _context;
@@ -25,9 +26,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             _env = env;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page=1)
         {
-            return View(await _context.Blogs.OrderByDescending(x=>x.Id).Where(s => s.IsDeleted == false).ToListAsync());
+
+            ViewBag.TotalPage = Math.Ceiling(_context.Blogs.Count() / 8m);
+            ViewBag.Seltectedpage = page;
+            return View(await _context.Blogs.OrderByDescending(x=>x.Id).Where(s => s.IsDeleted == false).Skip((page-1)*4).Take(4).ToListAsync());
         }
 
         [HttpGet]

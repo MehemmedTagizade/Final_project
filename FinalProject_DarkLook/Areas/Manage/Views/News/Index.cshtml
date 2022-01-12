@@ -4,11 +4,10 @@
     Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
 <h1 class="h3 mb-4 text-gray-800">News Page</h1>
 
-@if (Model.Count <15)
+@if (Model.Count < 15)
 {
     <div class="d-flex justify-content-end mb-2">
         <a class="btn btn-primary" asp-action="Create">Create</a>
@@ -31,7 +30,7 @@
             <tr>
                 <th scope="row">@news.Id</th>
                 <td>
-                    <img style="width:200px; height:200px; border-radius:50%" src="~/images/blog/@news.Image" alt="Alternate Text" />
+                    <img style="width:200px; height:200px; " src="~/images/blog/@news.Image" alt="Alternate Text" />
                 </td>
                 <td>@Html.Raw(news.Title)</td>
                 <td>@news.Day</td>
@@ -44,3 +43,41 @@
         }
     </tbody>
 </table>
+
+
+
+<div class="d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+
+            @if (ViewBag.Seltectedpage != 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="index" asp-route-page="@(ViewBag.Seltectedpage-1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+
+            }
+
+            @for (int i = 1; i <= ViewBag.TotalPage; i++)
+            {
+                <li class="page-item @(i==ViewBag.Seltectedpage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
+
+            }
+
+
+
+            @if (ViewBag.Seltectedpage < ViewBag.TotalPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" asp-action="index" asp-route-page="@(ViewBag.Seltectedpage+1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
