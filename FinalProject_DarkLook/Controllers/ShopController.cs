@@ -42,9 +42,11 @@ namespace FinalProject_DarkLook.Controllers
 
         public async Task<IActionResult> WatchDetail (int? Id)
         {
+            if (Id == null) return RedirectToAction("Index", "error");
             WatchCard watchCard = await _context.WatchCards.Where(x => x.IsDeleted == false).
                 Include(x => x.watchColours).ThenInclude(x => x.Colour).Include(x => x.watchSizes).
                 ThenInclude(x => x.Size).FirstOrDefaultAsync(x => x.Id == Id);
+    if(watchCard==null) return RedirectToAction("Index", "error");
 
 
 

@@ -33,10 +33,10 @@ namespace FinalProject_DarkLook.Controllers
 
         public async Task<IActionResult> GetDetail(int? Id)
         {
-            if (Id == null) return NotFound();
+            if (Id == null) return RedirectToAction("Index","error");
 
             WatchCard watchCard = await _context.WatchCards.Include(x=>x.watchColours).Include(x=>x.watchSizes).FirstOrDefaultAsync(x => x.Id == Id);
-            if (watchCard == null) return NotFound();
+            if (watchCard == null) return RedirectToAction("Index", "error");
             return Json(watchCard);
                 
         }
@@ -50,11 +50,11 @@ namespace FinalProject_DarkLook.Controllers
             }
 
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             WatchCard watchCard = await _context.WatchCards.FirstOrDefaultAsync(x => x.Id == Id);
             if (watchCard == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
             AppUser appUser = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -167,7 +167,7 @@ namespace FinalProject_DarkLook.Controllers
 
             AppUser appUser = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            if (Id == null) return NotFound();
+            if (Id == null) return RedirectToAction("Index", "error");
 
             List<BasketWatch> basketWatches = await _context.BasketWatches.Include(b => b.Watch)
                     .Where(b => b.IsDeleted == false).ToListAsync();
@@ -175,7 +175,7 @@ namespace FinalProject_DarkLook.Controllers
             BasketWatch basketWatch = basketWatches
                 .FirstOrDefault(b => b.Id == Id && b.IsDeleted == false && b.AppUserId == appUser.Id);
 
-            if (basketWatches == null) return NotFound();
+            if (basketWatches == null) return RedirectToAction("Index", "error");
 
             basketWatch.IsDeleted = true;
 

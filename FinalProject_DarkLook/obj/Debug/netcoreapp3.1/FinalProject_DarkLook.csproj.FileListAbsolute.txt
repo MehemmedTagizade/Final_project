@@ -305,3 +305,5 @@ C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\bin\Debug
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\Product\ViewCartBasket.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductSearchPartialcshtml.cshtml.g.cs
 C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\FinalProject_DarkLook.csproj.AssemblyReference.cache
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutError.cshtml.g.cs
+C:\Users\Mahammad Tagizada\Desktop\Final_project\FinalProject_DarkLook\obj\Debug\netcoreapp3.1\Razor\Views\Error\Index.cshtml.g.cs
