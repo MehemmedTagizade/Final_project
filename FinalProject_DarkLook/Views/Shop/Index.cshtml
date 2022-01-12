@@ -197,13 +197,27 @@
             </div>
             <div class="pagination-nav text-center mt_50">
                 <ul>
-                    <li><a asp-action="index" asp-route-page="@(ViewBag.Seltectedpage-1)"><i class="fa fa-angle-left"></i></a></li>
+
+
+                    @if (ViewBag.Seltectedpage !=1 )
+                    {
+                        <li><a asp-action="index" asp-route-page="@(ViewBag.Seltectedpage-1)"><i class="fa fa-angle-left"></i></a></li>
+
+                    }
+
+
                     @for (int i = 1; i <= ViewBag.TotalPage; i++)
                     {
+
                         <li class="page-item @(i==ViewBag.Seltectedpage?"active":"")"><a class="page-link" asp-action="index" asp-route-page="@i">@i</a></li>
 
                     }
-                    <li><a asp-action="index" asp-route-page="@(ViewBag.Seltectedpage+1)"><i class="fa fa-angle-right"></i></a></li>
+                    @if (ViewBag.Seltectedpage < ViewBag.TotalPage)
+                    {
+                        <li><a asp-action="index" asp-route-page="@(ViewBag.Seltectedpage+1)"><i class="fa fa-angle-right"></i></a></li>
+
+                    }
+
                 </ul>
             </div>
         </div>
