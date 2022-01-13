@@ -37,7 +37,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Create(Future future)
         {
             if (_context.Futures.Where(s => s.IsDeleted == false).Count() >= 9)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (!ModelState.IsValid)
                 return View(future);
@@ -52,12 +52,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Future future = await _context.Futures.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (future == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(future);
         }
@@ -67,7 +67,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id, Future future)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (!ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             Future dbFuture = await _context.Futures.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (dbFuture == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
             dbFuture.Title = future.Title;
@@ -94,12 +94,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Future future = await _context.Futures.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (future == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(future);
         }
@@ -108,12 +108,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, Future future)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Future DeletedFuture = await _context.Futures.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (future == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
 

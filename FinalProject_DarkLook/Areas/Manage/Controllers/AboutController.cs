@@ -76,12 +76,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             About about = await _context.Abouts.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (about == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(about);
         }
@@ -91,7 +91,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id, About about)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (ModelState.IsValid)
             {
@@ -101,7 +101,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             About dbAbout = await _context.Abouts.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (dbAbout == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (about.File != null)
             {
@@ -140,12 +140,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             About about = await _context.Abouts.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (about == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(about);
         }
@@ -155,12 +155,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, About about)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             About DeletedAbout = await _context.Abouts.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (about == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             string path = Path.Combine(_env.WebRootPath, "images");
 

@@ -44,7 +44,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Create(News news)
         {
             //if (_context.News.Where(s => s.IsDeleted == false).Count() >= 15)
-            //    return NotFound();
+            //    return RedirectToAction("Index", "error");
 
             if (ModelState.IsValid)
                 return View(news);
@@ -77,12 +77,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Detail(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             News news = await _context.News.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (news == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(news);
         }
@@ -91,12 +91,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             News news = await _context.News.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (news == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(news);
         }
@@ -106,7 +106,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id, News news)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (ModelState.IsValid)
             {
@@ -116,7 +116,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             News dbNewsr = await _context.News.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (dbNewsr == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (news.File != null)
             {
@@ -159,12 +159,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             News news = await _context.News.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (news == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(news);
         }
@@ -174,12 +174,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, News news)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             News DeletedNews = await _context.News.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (news == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             string path = Path.Combine(_env.WebRootPath, "images", "blog");
 

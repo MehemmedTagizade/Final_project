@@ -118,7 +118,8 @@ namespace FinalProject_DarkLook.Controllers
         public async Task<IActionResult> Login(LoginVM loginVM)
         {
             if (!ModelState.IsValid)
-                return NotFound();
+
+                return RedirectToAction("Index", "error");
 
             AppUser appUser = await _manager.FindByEmailAsync(loginVM.Email);
 
@@ -128,11 +129,11 @@ namespace FinalProject_DarkLook.Controllers
                 return View(loginVM);
             }
 
-            //if (appUser.EmailConfirmed == false)
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
-
+            if (appUser.EmailConfirmed == false)
+            {
+                return RedirectToAction("login", "account");
+            }
+          
             Microsoft.AspNetCore.Identity.SignInResult signinResult = await _signInManager
                 .PasswordSignInAsync(appUser, loginVM.Password, true, true);
 
@@ -159,20 +160,20 @@ namespace FinalProject_DarkLook.Controllers
         {
             if (string.IsNullOrWhiteSpace(Id) || string.IsNullOrWhiteSpace(token))
             {
-                return NotFound();
+                return RedirectToAction("Index", "error");
             }
 
             AppUser appUser = await _manager.FindByIdAsync(Id);
 
             if (appUser == null)
             {
-                return NotFound();
+                return RedirectToAction("Index", "error");
             }
 
             IdentityResult identityResult = await _manager.ConfirmEmailAsync(appUser, token);
             if (!identityResult.Succeeded)
             {
-                return NotFound();
+                return RedirectToAction("Index", "error");
             }
 
             return RedirectToAction("Login");
@@ -188,12 +189,11 @@ namespace FinalProject_DarkLook.Controllers
         public async Task<IActionResult> ForgetPassword(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
-                return NotFound();
-
+                return RedirectToAction("Index", "error");
             AppUser appUser = await _manager.FindByEmailAsync(email);
 
             if (appUser == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("Dgka Cryptography", "dgkacryptography@gmail.com"));
@@ -230,14 +230,14 @@ namespace FinalProject_DarkLook.Controllers
         {
             if (string.IsNullOrWhiteSpace(Id) || string.IsNullOrWhiteSpace(token))
             {
-                return NotFound();
+                return RedirectToAction("Index", "error");
             }
 
             AppUser appUser = await _manager.FindByIdAsync(Id);
 
             if (appUser == null)
             {
-                return NotFound();
+                return RedirectToAction("Index", "error");
             }
 
             ResetPasswordVM resetPasswordVM = new ResetPasswordVM
@@ -260,14 +260,14 @@ namespace FinalProject_DarkLook.Controllers
 
             if (string.IsNullOrWhiteSpace(resetPasswordVM.Id) || string.IsNullOrWhiteSpace(resetPasswordVM.Token))
             {
-                return NotFound();
+                return RedirectToAction("Index", "error");
             }
 
             AppUser appUser = await _manager.FindByIdAsync(resetPasswordVM.Id);
 
             if (appUser == null)
             {
-                return NotFound();
+                return RedirectToAction("Index", "error");
             }
 
             IdentityResult identityResult = await _manager.ResetPasswordAsync(appUser, resetPasswordVM.Token, resetPasswordVM.Password);

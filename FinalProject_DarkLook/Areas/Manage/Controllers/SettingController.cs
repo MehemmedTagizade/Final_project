@@ -40,7 +40,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Create(Setting setting)
         {
             if (_context.Setting.Where(s => s.IsDeleted == false).Count() >= 1)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (ModelState.IsValid)
                 return View(setting);
@@ -74,12 +74,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Setting setting = await _context.Setting.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (setting == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(setting);
         }
@@ -89,7 +89,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id, Setting setting)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (!ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             Setting dbSetting = await _context.Setting.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (dbSetting == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (setting.File != null)
             {
@@ -147,12 +147,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Detail(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Setting setting = await _context.Setting.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (setting == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(setting);
         }
@@ -160,12 +160,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Setting setting = await _context.Setting.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (setting == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(setting);
         }
@@ -175,12 +175,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, Setting setting)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Setting DeletedSetting = await _context.Setting.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (setting == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
 

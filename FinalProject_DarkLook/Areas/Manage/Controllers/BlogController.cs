@@ -77,13 +77,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Blog blogs = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (blogs == null)
-                return NotFound();
-
+                return RedirectToAction("Index", "error");
             return View(blogs);
         }
 
@@ -92,18 +91,16 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id, Blog blogs)
         {
             if (Id == null)
-                return NotFound();
-
+                return RedirectToAction("Index", "error");
             if (ModelState.IsValid)
             {
-                return View(blogs);
+                return RedirectToAction("Index", "error");
             }
 
             Blog dbblogsr = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (dbblogsr == null)
-                return NotFound();
-
+                return RedirectToAction("Index", "error");
             if (blogs.File != null)
             {
                 if (!blogs.File.CheckContentType("image"))
@@ -142,12 +139,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Detail(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Blog blog = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (blog == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(blog);
         }
@@ -155,12 +152,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Blog blog = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (blog == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(blog);
         }
@@ -170,12 +167,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, Blog blog)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Blog DeletedBlog = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (blog == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             string path = Path.Combine(_env.WebRootPath, "images", "blog");
 

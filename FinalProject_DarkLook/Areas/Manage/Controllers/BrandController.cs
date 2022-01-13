@@ -40,7 +40,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Create(BrandLogo brandLogo)
         {
             if (_context.BrandLogos.Where(s => s.IsDeleted == false).Count() >= 8)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (ModelState.IsValid)
                 return View(brandLogo);
@@ -73,12 +73,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             BrandLogo brandLogo = await _context.BrandLogos.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (brandLogo == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(brandLogo);
         }
@@ -88,7 +88,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id, BrandLogo brandLogo)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             BrandLogo dbBrand = await _context.BrandLogos.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (dbBrand == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (brandLogo.File != null)
             {
@@ -132,12 +132,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             BrandLogo brandLogo = await _context.BrandLogos.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (brandLogo == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(brandLogo);
         }
@@ -147,12 +147,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, BrandLogo brandLogo)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             BrandLogo DeletedBrand = await _context.BrandLogos.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (brandLogo == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
 

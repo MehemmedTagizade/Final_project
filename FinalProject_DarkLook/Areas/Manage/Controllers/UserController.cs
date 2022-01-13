@@ -51,11 +51,11 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
 
         public async Task<IActionResult> ChangeStatus(string Id, bool status)
         {
-            if (Id == null) return NotFound();
+            if (Id == null) return RedirectToAction("Index", "error");
 
             AppUser appUser = await _userManager.FindByIdAsync(Id);
 
-            if (appUser == null) return NotFound();
+            if (appUser == null) return RedirectToAction("Index", "error");
 
             appUser.IsDeleted = status;
             await _userManager.UpdateAsync(appUser);
@@ -67,11 +67,11 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeRole(string Id)
         {
-            if (Id == null) return NotFound();
+            if (Id == null) return RedirectToAction("Index", "error");
 
             AppUser appUser = await _userManager.FindByIdAsync(Id);
 
-            if (appUser == null) return NotFound();
+            if (appUser == null) return RedirectToAction("Index", "error");
 
             AppUserVM appUserVM = new AppUserVM
             {
@@ -92,11 +92,11 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeRole(string Id, string Roles)
         {
-            if (Id == null) return NotFound();
+            if (Id == null) return RedirectToAction("Index", "error");
 
             AppUser appUser = await _userManager.FindByIdAsync(Id);
 
-            if (appUser == null) return NotFound();
+            if (appUser == null) return RedirectToAction("Index", "error");
 
             string oldRole = (await _userManager.GetRolesAsync(appUser))[0];
 
@@ -108,11 +108,11 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         }
         public async Task<IActionResult> ChangePassword(string Id)
         {
-            if (Id == null) return NotFound();
+            if (Id == null) return RedirectToAction("Index", "error");
 
             AppUser appUser = await _userManager.FindByIdAsync(Id);
 
-            if (appUser == null) return NotFound();
+            if (appUser == null) return RedirectToAction("Index", "error");
 
             AppUserVM appUserVM = new AppUserVM
             {
@@ -133,11 +133,11 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePassword(string Id, string Password)
         {
-            if (Id == null) return NotFound();
+            if (Id == null) return RedirectToAction("Index", "error");
 
             AppUser appUser = await _userManager.FindByIdAsync(Id);
 
-            if (appUser == null) return NotFound();
+            if (appUser == null) return RedirectToAction("Index", "error");
 
             string token = await _userManager.GeneratePasswordResetTokenAsync(appUser);
 

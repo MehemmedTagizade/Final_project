@@ -40,7 +40,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Create(Slider slider)
         {
             if (_context.Sliders.Where(s => s.IsDeleted == false).Count() >= 5)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (!ModelState.IsValid)
                 return View(slider);
@@ -74,12 +74,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Slider slider = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (slider == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(slider);
         }
@@ -89,12 +89,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, Slider slider)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Slider Deletedslider = await _context.Sliders.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (slider == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             string path = Path.Combine(_env.WebRootPath, "image", "bg-images");
 

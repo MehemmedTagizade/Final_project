@@ -37,7 +37,10 @@ namespace FinalProject_DarkLook.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(ContactVM contactVM)
         {
-            if (!ModelState.IsValid) return View(contactVM);
+            if (!ModelState.IsValid) 
+
+                return View(contactVM);
+
             Review review = new Review
             {
               Username=contactVM.Username,

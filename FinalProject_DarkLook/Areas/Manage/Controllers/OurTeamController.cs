@@ -39,7 +39,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Create(OurTeam ourTeam)
         {
             if (_context.OurTeams.Where(s => s.IsDeleted == false).Count() >= 8)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (ModelState.IsValid)
                 return View(ourTeam);
@@ -71,12 +71,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             OurTeam ourTeam = await _context.OurTeams.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (ourTeam == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(ourTeam);
         }
@@ -86,7 +86,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id, OurTeam ourTeam)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             OurTeam dbteam = await _context.OurTeams.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (dbteam == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (ourTeam.File != null)
             {
@@ -143,12 +143,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Detail(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             OurTeam ourTeam = await _context.OurTeams.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (ourTeam == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(ourTeam);
         }
@@ -157,12 +157,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             OurTeam ourTeam = await _context.OurTeams.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (ourTeam == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(ourTeam);
         }
@@ -172,12 +172,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, OurTeam ourTeam)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             OurTeam DeletedTeam = await _context.OurTeams.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (ourTeam == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
 

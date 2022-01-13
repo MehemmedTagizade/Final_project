@@ -102,7 +102,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
                 return View(watchCard);
             }
 
-            if (watchCard.HoverImageFile.CheckLength(200))
+            if (watchCard.HoverImageFile.CheckLength(500))
             {
                 ModelState.AddModelError("HoverImageFile", "HoverImageFile Uzunlugu Maksimum 200 kb Ola Biler");
                 return View(watchCard);
@@ -124,12 +124,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             WatchCard watchCard = await _context.WatchCards.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (watchCard == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(watchCard);
         }
@@ -139,12 +139,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, WatchCard watchCard)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             WatchCard DeletedWatch= await _context.WatchCards.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (watchCard == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
 
@@ -160,12 +160,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         {
 
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             WatchCard watch = await _context.WatchCards.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (watch == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(watch);
 
@@ -177,12 +177,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         {
            
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
            WatchCard dbWatch = await _context.WatchCards.FirstOrDefaultAsync(p => p.Id == Id);
 
             if (dbWatch == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (ModelState.IsValid)
                 return View(dbWatch);
@@ -202,7 +202,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
 
                 if (watch.MainImageFile.CheckLength(500))
                 {
-                    ModelState.AddModelError("MainImageFile", "MainImageFile Uzunlugu Maksimum 200 kb Ola Biler");
+                    ModelState.AddModelError("MainImageFile", "MainImageFile Uzunlugu Maksimum 500 kb Ola Biler");
                     return View(dbWatch);
                 }
 
@@ -220,15 +220,15 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
                     return View(watch);
                 }
 
-                if (watch.HoverImageFile.CheckLength(200))
+                if (watch.HoverImageFile.CheckLength(600))
                 {
-                    ModelState.AddModelError("HoverImageFile", "HoverImageFile Uzunlugu Maksimum 200 kb Ola Biler");
+                    ModelState.AddModelError("HoverImageFile", "HoverImageFile Uzunlugu Maksimum 600 kb Ola Biler");
                     return View(watch);
                 }
 
                 Helper.DeleteFile(filePath, dbWatch.HoverImage);
 
-                dbWatch.HoverImage = await watch.MainImageFile.SaveFileAsync(filePath);
+                dbWatch.HoverImage = await watch.HoverImageFile.SaveFileAsync(filePath);
             }
 
 
@@ -238,6 +238,11 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             dbWatch.IsDealsOftheWeek = watch.IsDealsOftheWeek;
             dbWatch.IsFeatured = watch.IsFeatured;
             dbWatch.IsNewArrivals = watch.IsNewArrivals;
+            dbWatch.Code = watch.Code;
+            dbWatch.Stock = watch.Stock;
+            dbWatch.Star = watch.Star;
+            dbWatch.DescDetail = watch.DescDetail;
+            dbWatch.Brand = watch.Brand;
 
             await _context.SaveChangesAsync();
 

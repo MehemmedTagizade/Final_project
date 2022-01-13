@@ -134,7 +134,7 @@ namespace FinalProject_DarkLook.Controllers
 
             if (basketWatch.AppUserId != appUser.Id)
             {
-                return BadRequest();
+                return RedirectToAction("Index", "error");
             }
 
             List<BasketWatch> basketWatches = await _context.BasketWatches.Include(b => b.Watch)
@@ -148,7 +148,7 @@ namespace FinalProject_DarkLook.Controllers
 
             if (dbBasketWatch == null)
             {
-                return BadRequest();
+                return RedirectToAction("Index", "error");
             }
 
             dbBasketWatch.Count = basketWatch.Count;

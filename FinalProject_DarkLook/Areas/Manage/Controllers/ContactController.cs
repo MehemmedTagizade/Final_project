@@ -36,7 +36,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Create(Contact contact)
         {
             if (_context.OurTeams.Where(s => s.IsDeleted == false).Count() >= 2)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (ModelState.IsValid)
                 return View(contact);
@@ -50,12 +50,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Contact contact = await _context.Contacts.FirstOrDefaultAsync(s => s.Id == Id && s.IsDelete == false);
 
             if (contact == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(contact);
         }
@@ -65,7 +65,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id, Contact contact)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (!ModelState.IsValid)
             {
@@ -75,7 +75,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             Contact dbContact = await _context.Contacts.FirstOrDefaultAsync(s => s.Id == Id && s.IsDelete == false);
 
             if (dbContact == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
             dbContact.Location = contact.Location;
@@ -95,12 +95,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Contact Contact = await _context.Contacts.FirstOrDefaultAsync(s => s.Id == Id && s.IsDelete == false);
 
             if (Contact == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(Contact);
         }
@@ -110,12 +110,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, Contact contact)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Contact DeletedContact= await _context.Contacts.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (contact == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
 

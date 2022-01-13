@@ -37,7 +37,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Create(Skills skills)
         {
             if (_context.Skills.Where(s => s.IsDeleted == false).Count() >= 6)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (!ModelState.IsValid)
                 return View(skills);
@@ -51,12 +51,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Skills skills = await _context.Skills.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (skills == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(skills);
         }
@@ -66,7 +66,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id, Skills skills)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (!ModelState.IsValid)
             {
@@ -76,7 +76,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
              Skills dbSkills = await _context.Skills.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (dbSkills == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
             dbSkills.Name = skills.Name;
@@ -92,12 +92,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Skills skills = await _context.Skills.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (skills == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(skills);
         }
@@ -107,12 +107,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, Skills skills)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Skills DeletedSkills = await _context.Skills.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (skills == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
 

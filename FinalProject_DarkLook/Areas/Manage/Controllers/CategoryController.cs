@@ -37,7 +37,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Create(Category category)
         {
             if (_context.Categories.Where(s => s.IsDeleted == false).Count() >= 9)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (!ModelState.IsValid)
                 return View(category);
@@ -51,12 +51,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Category category = await _context.Categories.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (category == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(category);
         }
@@ -66,7 +66,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Update(int? Id, Category category)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             if (!ModelState.IsValid)
             {
@@ -76,7 +76,7 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
             Category dbCategory = await _context.Categories.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (dbCategory == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
             dbCategory.Name = category.Name;
@@ -90,12 +90,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Category category = await _context.Categories.FirstOrDefaultAsync(s => s.Id == Id && s.IsDeleted == false);
 
             if (category == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             return View(category);
         }
@@ -105,12 +105,12 @@ namespace FinalProject_DarkLook.Areas.Manage.Controllers
         public async Task<IActionResult> Delete(int? Id, Category category)
         {
             if (Id == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
             Category DeletedCategory = await _context.Categories.FirstOrDefaultAsync(s => s.Id == Id);
 
             if (category == null)
-                return NotFound();
+                return RedirectToAction("Index", "error");
 
 
 
