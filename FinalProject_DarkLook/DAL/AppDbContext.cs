@@ -34,6 +34,10 @@ namespace FinalProject_DarkLook.DAL
         public DbSet<WatchSize> watchSizes { get; set; }
         public DbSet<BasketWatch> BasketWatches { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<BildingAdress> BildingAdresses { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+
 
 
 

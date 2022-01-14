@@ -178,6 +178,40 @@ namespace FinalProject_DarkLook.Migrations
                     b.ToTable("BasketWatches");
                 });
 
+            modelBuilder.Entity("FinalProject_DarkLook.Models.BildingAdress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("OrderDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("BildingAdresses");
+                });
+
             modelBuilder.Entity("FinalProject_DarkLook.Models.Blog", b =>
                 {
                     b.Property<int>("Id")
@@ -442,6 +476,78 @@ namespace FinalProject_DarkLook.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("News");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ApproveNote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsApprove")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("No")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("No")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("WatchCardId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("WatchCardId");
+
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("FinalProject_DarkLook.Models.OurTeam", b =>
@@ -914,6 +1020,13 @@ namespace FinalProject_DarkLook.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("FinalProject_DarkLook.Models.BildingAdress", b =>
+                {
+                    b.HasOne("FinalProject_DarkLook.Models.AppUser", "AppUser")
+                        .WithMany("BildingAdresses")
+                        .HasForeignKey("AppUserId");
+                });
+
             modelBuilder.Entity("FinalProject_DarkLook.Models.BlogCategory", b =>
                 {
                     b.HasOne("FinalProject_DarkLook.Models.Blog", "Blog")
@@ -931,6 +1044,26 @@ namespace FinalProject_DarkLook.Migrations
                 {
                     b.HasOne("FinalProject_DarkLook.Models.WatchCard", null)
                         .WithMany("BrandLogos")
+                        .HasForeignKey("WatchCardId");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.Order", b =>
+                {
+                    b.HasOne("FinalProject_DarkLook.Models.AppUser", "AppUser")
+                        .WithMany("Orders")
+                        .HasForeignKey("AppUserId");
+                });
+
+            modelBuilder.Entity("FinalProject_DarkLook.Models.OrderItem", b =>
+                {
+                    b.HasOne("FinalProject_DarkLook.Models.Order", "Order")
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FinalProject_DarkLook.Models.WatchCard", "WatchCard")
+                        .WithMany()
                         .HasForeignKey("WatchCardId");
                 });
 

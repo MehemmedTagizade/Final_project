@@ -20,5 +20,7 @@ namespace FinalProject_DarkLook.Models
         public bool IsDeleted { get; set; }
 
         public ICollection<BasketWatch> BasketWatches { get; set; }
+        public ICollection<BildingAdress> BildingAdresses { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

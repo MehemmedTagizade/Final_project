@@ -42,12 +42,12 @@
                     <div id="product-thumbnail" class="owl-carousel">
                        
                         <div class="item">
-                            <div class="image-additional"><a class="thumbnail" href="~/images/product/product7.jpg" data-fancybox="group1"> <img src="~/images/product/product7.jpg" alt="" /></a></div>
+                            <div class="image-additional"><a class="thumbnail" href="~/images/product/@Model.Watchard.Image" data-fancybox="group1"> <img src="~/images/product/@Model.Watchard.Image" alt="" /></a></div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 prodetail caption product-thumb">
-                    <h4 data-name="product_name" class="product-name"><a href="~/#" title="Casual Shirt With Ruffle Hem">@Model.Watchard.Desc</a></h4>
+                    <h4 data-name="product_name" class="product-name"><a title="Casual Shirt With Ruffle Hem">@Model.Watchard.Desc</a></h4>
                     <div class="rating-block">
                         @for (int i = 1; i <= 5; i++)
                         {
@@ -66,7 +66,7 @@
                     <ul class="list-unstyled product_info mtb_20">
                         <li>
                             <label>Brand:</label>
-                            <span> <a href="~/#">@Model.Watchard.Brand</a></span>
+                            <span> <a >@Model.Watchard.Brand</a></span>
                         </li>
                         <li>
                             <label>Product Code:</label>
